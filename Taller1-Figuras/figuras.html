@@ -46,7 +46,7 @@ header {
 
 .main-section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 2fr;
     margin: 0 10px;
     background-color:whitesmoke;
     height: 100%;
@@ -55,15 +55,19 @@ header {
 .div-cuadrado, .div-triangulo, .div-circulo, .div-isosceles {
     display: flex;
     flex-direction: column;
-    border: 2px solid greenyellow;
-    box-shadow: 3px 3px 3px black;
-    height: 375px;
+    border: 2px solid maroon;
+    box-shadow: 4px 4px 4px brown;
+    height: auto;
     width: auto;
     justify-content: space-around;
     align-items: center;
-    margin-top: 50px;
     background-color: white;
-    margin-left: 40px;
+    margin: 50px 40px 0 40px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 form label span {
@@ -73,14 +77,20 @@ input {
     height: 20px;
     margin-bottom: 10px;
 }
+.div-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+}
 button {
-   margin-top: 20px;
    border: 1px solid coral;
    border-radius: 5px;
    background-color: burlywood;
    color: white;
    width: 35%;
-   height: 30px;
+   height: 110%;
 }
 .pantalla {
     height: 20px;
@@ -96,13 +106,48 @@ button:hover {
     margin-left: 25%;
     justify-content: flex-end;
 }
-#baseTriangulo {
+#baseTriangulo, #lado3Isosceles {
     margin-left: 10px;
 }
+
+@media (max-width: 1024px) {
+    .div-cuadrado, .div-triangulo, .div-circulo, .div-isosceles {
+        padding: 0 20px 0 20px;
+    }
+}
+
+@media (max-width: 1136px) {
+    #baseTriangulo {
+        margin-left: 0;
+    }
+    #lado3Isosceles {
+        margin-left: 2px;
+        /* margin-right: 20px; */
+    }
+
+}
+@media (max-width: 960px) {
+    #lado3Isosceles {
+        margin-left: 0;
+        /* margin-right: 20px; */
+    }
+    .labell {
+        margin-right: 2px;
+    }
+
+}
+/* @media (max-width: 940px) {
+    #lado3Isosceles {
+        margin-right: 0;
+    }
+
+} */
+
 
 @media (max-width: 640px) {
     .explicacion {
         height: auto;
+        padding: 30px 50px;
     }
     .explicacion p {
         font-weight: bold;
@@ -115,13 +160,14 @@ button:hover {
         flex-wrap: wrap;
         justify-content: center;
     }
-    .div-cuadrado, .div-triangulo, .div-circulo {
+    .div-cuadrado, .div-triangulo, .div-circulo, .div-isosceles {
         margin-left: 20px;
+        padding-left: 10px;
         width: 75%;
         height: auto;
     }
     form label span {
-    font-weight:lighter;
+        font-weight:lighter;
     }
     #baseTriangulo {
         margin-left: 0;
@@ -129,8 +175,6 @@ button:hover {
     button {
         height: auto;
     }
-
-
 
 }
 </style>
@@ -157,12 +201,14 @@ button:hover {
                     <span> Escribe cuanto mide cada lado de tu cuadrado </span>
                     <input id="inputCuadrado" type="number">
                 </label>
-                <button type="button" onclick="calcularPerimetroCuadrado()">
-                    Calcular perimetro
-                </button>
-                <button class="button-area" type="button" onclick="calcularAreaCuadrado()">
-                    Calcular area
-                </button>
+                <div class="div-buttons">
+                    <button type="button" onclick="calcularPerimetroCuadrado()">
+                        Calcular perimetro
+                    </button>
+                    <button class="button-area" type="button" onclick="calcularAreaCuadrado()">
+                        Calcular area
+                    </button>
+                </div>
                 <div id="pantalla" class="pantalla">
                 </div>
             </form>
@@ -191,14 +237,15 @@ button:hover {
                     <input id="alturaTriangulo" type="number">
                     <br>
                 </label>
-                <button type="button" onclick="calcularPerimetroTriangulo()">
-                    Calcular perimetro
-                </button>
-                <button class="button-area" type="button" onclick="calcularAreaTriangulo()">
-                    Calcular area
-                </button>
-                <div id="pantalla" class="pantalla">
+                <div class="div-buttons">
+                    <button type="button" onclick="calcularPerimetroTriangulo()">
+                        Calcular perimetro
+                    </button>
+                    <button class="button-area" type="button" onclick="calcularAreaTriangulo()">
+                        Calcular area
+                    </button>
                 </div>
+                <div id="pantalla" class="pantalla"></div>
             </form>
         </div>
 
@@ -210,12 +257,14 @@ button:hover {
                     <input id="radioCirculo" type="number">
                     <br>
                 </label>
-                <button type="button" onclick="calcularPerimetroCirculo()">
-                    Calcular perimetro
-                </button>
-                <button class="button-area" type="button" onclick="calcularAreaCirculo()">
-                    Calcular area
-                </button>
+                <div class="div-buttons">
+                    <button type="button" onclick="calcularPerimetroCirculo()">
+                        Calcular perimetro
+                    </button>
+                    <button class="button-area" type="button" onclick="calcularAreaCirculo()">
+                        Calcular area
+                    </button>
+                </div>
                 <div id="pantalla" class="pantalla" onclick="pantallaCirculo">
                 </div>
             </form>
@@ -234,15 +283,15 @@ button:hover {
                     <br>
                 </label>
                 <label for="lado3Isosceles">
-                    <span> Escribe la base del triangulo </span>
+                    <span class="textoBaseIsosceles"> Escribe la base del triangulo </span>
                     <input id="lado3Isosceles" type="number">
                     <br>
                 </label>
-                
-                <button type="button" onclick="hIsoscelesHtml()">
-                    Calcular altura
-                </button>
- 
+                <div class="div-buttons">
+                    <button type="button" onclick="hIsoscelesHtml()">
+                        Calcular altura
+                    </button>  
+                </div>
                 <div id="pantalla" class="pantalla" onclick="pantallaCirculo">
                 </div>
             </form>
