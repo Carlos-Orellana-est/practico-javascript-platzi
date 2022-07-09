@@ -63,25 +63,45 @@ function areaCirculo (radio) {
 
 console.groupEnd();
 
+// *************************************** FUNCION OUTPUT *******************************************************
+function output (iD, num) {
+    outputPantalla = document.getElementById(iD);
+    outputPantalla.innerHTML = `<span>${num}</span>`;
+}
 
 //  ******************************        AQUI CONECTAMOS CON EL HTML    ****************************************
 
 //FUNCIONES ONCLICK CUADRADO
 
+
+// manera 1 de calcular perimetro (con scopelocal de funcion)
 function calcularPerimetroCuadrado() {
     const inputt = document.getElementById("inputCuadrado");
     const valuee = inputt.value;
-
     const perimetroo = perimetroCuadrado(valuee);
-    alert(perimetroo);
+
+    let boton = document.getElementById('btnPeriCuadrado');
+    boton.addEventListener('click', output('outputCuadrado', perimetroo));
 }
+
+// manera 2 de calcular perimetro (con scope global)
+    /* 
+    const boton = document.getElementById('btnPeriCuadrado');
+    boton.addEventListener('click', function(){
+        let ladoCuad = document.getElementById('inputCuadrado').value;
+        let perimetroo = perimetroCuadrado(ladoCuad);
+        let salida = document.getElementById('outputCuadrado')
+
+        salida.innerHTML = `<span>${perimetroo}</span>`
+    }); 
+    */
 
 function calcularAreaCuadrado() {
     const inputt = document.getElementById("inputCuadrado");
     const valuee = inputt.value;
 
     const area = areaCuadrado(valuee);
-    alert(area);
+    output('outputCuadrado', area);
 }
 
 //FUNCIONES ONCLICK TRIANGULO
@@ -95,7 +115,7 @@ function calcularPerimetroTriangulo() {
     const valorBase = parseInt(basee.value);
 
     const perimetroo = perimetroTriangulo(valorLado1, valorLado2, valorBase);
-    alert(perimetroo);
+    output('outputTriangulo', perimetroo);
 }
 
 function calcularAreaTriangulo() {
@@ -105,18 +125,20 @@ function calcularAreaTriangulo() {
     const valorAltura = alturaa.value;
 
     const area = areaTriangulo(valorBase, valorAltura);
-    alert(area);
+    output('outputTriangulo', area);
 }
 
 //FUNCIONES ONCLICK TRIANGULO ISOSCELES
+
 function alturaIsosceles (lado1, lado2, base) {
     let altura = 0;
     if (lado1 != lado2) {
-        console.error("Los lados a y b no son iguales")
+        console.error("Los lados a y b no son iguales");
+        alert("Los lados a y b no son iguales");
     }
     else {
-        altura = Math.sqrt((lado1**2) - (base**2/4)); 
-        alert(altura);
+        altura = Math.sqrt((lado1**2) - (base**2/4));
+        output('outputIsosceles', altura)
     }
    
     return altura;
@@ -136,13 +158,13 @@ function calcularPerimetroCirculo(){
     const radio = document.getElementById("radioCirculo").value
 
     const perimetro = perimetroCirculo(radio);
-    alert(perimetro);
+    output('outputCirculo', perimetro)
 }
 
 function calcularAreaCirculo(){
     const radio = document.getElementById("radioCirculo").value
 
     const areaC = areaCirculo(radio);
-    return areaC
+    output('outputCirculo', areaC)
 }
 

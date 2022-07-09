@@ -1,0 +1,178 @@
+header {
+    height: 100px;
+    padding: 0;
+}
+.div-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+.div-header img {
+   height: 65px;
+   width: 65px;
+   border: solid 1.5px brown;
+   border-radius: 10px;
+   box-shadow: 2px 2px;
+}
+
+.div-header h1 {
+    color: brown;
+    font-weight: bold;
+    margin-left: 20px;
+    
+}
+.explicacion {
+    background-color:rgb(224, 209, 209);
+    height: 5vh;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    padding: 50px 100px;
+    border-bottom: 1px solid brown;
+}
+.explicacion p {
+    font-weight: bold;
+    font-size: large;
+}
+
+.main-section {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    margin: 0 10px;
+    background-color:whitesmoke;
+    height: 100%;
+    width: auto;
+}
+.div-cuadrado, .div-triangulo, .div-circulo, .div-isosceles {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid maroon;
+    box-shadow: 4px 4px 4px brown;
+    height: auto;
+    width: auto;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    margin: 50px 40px 0 40px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+form label span {
+    font-weight: bolder;
+}
+input {
+    height: 20px;
+    margin-bottom: 10px;
+}
+.div-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+}
+button {
+   border: 1px solid coral;
+   border-radius: 5px;
+   background-color: burlywood;
+   color: white;
+   width: 35%;
+   height: 110%;
+   font-weight: bolder;
+}
+.pantalla {
+    height: 20px;
+    width: 50%;
+    border: 2px white solid;
+    margin-top: 40px;
+    margin-left: 20%;
+}
+button:hover {
+    background-color: #d69f7e;
+}
+button:active {
+    background-color: coral;
+}
+.button-area {
+    margin-left: 25%;
+    justify-content: flex-end;
+}
+#baseTriangulo, #lado3Isosceles {
+    margin-left: 10px;
+}
+.pantalla {
+    height: 15px;
+    width: 25%;
+    margin: 30px 35%;
+}
+
+@media (max-width: 1024px) {
+    .div-cuadrado, .div-triangulo, .div-circulo, .div-isosceles {
+        padding: 0 20px 0 20px;
+    }
+}
+
+@media (max-width: 1136px) {
+    #baseTriangulo {
+        margin-left: 0;
+    }
+    #lado3Isosceles {
+        margin-left: 2px;
+        /* margin-right: 20px; */
+    }
+
+}
+@media (max-width: 960px) {
+    #lado3Isosceles {
+        margin-left: 0;
+        /* margin-right: 20px; */
+    }
+    .labell {
+        margin-right: 2px;
+    }
+
+}
+/* @media (max-width: 940px) {
+    #lado3Isosceles {
+        margin-right: 0;
+    }
+
+} */
+
+
+@media (max-width: 640px) {
+    .explicacion {
+        height: auto;
+        padding: 30px 50px;
+    }
+    .explicacion p {
+        font-weight: bold;
+        font-size: small;
+        width: 100vw;
+    }
+    .main-section {
+        display: flex;
+        width: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .div-cuadrado, .div-triangulo, .div-circulo, .div-isosceles {
+        margin-left: 20px;
+        padding-left: 10px;
+        width: 75%;
+        height: auto;
+    }
+    form label span {
+        font-weight:lighter;
+    }
+    #baseTriangulo {
+        margin-left: 0;
+    }
+    button {
+        height: auto;
+    }
+}
