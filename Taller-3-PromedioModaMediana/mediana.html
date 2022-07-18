@@ -5,9 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mediana</title>
+    <link rel="stylesheet" href="/Taller-3-PromedioModaMediana/styles.css">
 </head>
 <body>
-    <h1>Mediana</h1>
+    <header>
+        <h1>Mediana</h1>
+        <p>Este es mi tercer taller del curso práctico de javascript</p>
+    </header>
+
+    <section>
+        <form action="">
+            <div class="div-form">
+                <label for="inputLista">
+                    <span>Escriba su lista de numeros, separados por coma (,)</span>
+                    <input type="text" id="inputLista">
+                </label>
+            </div>
+            <button type="button" onclick="buttonMediana()">calcular mediana</button>
+        </form>
+        <div id="output" class="pantalla"></div>
+    </section>
 
     <script src="./mediana.js"></script>
 </body>

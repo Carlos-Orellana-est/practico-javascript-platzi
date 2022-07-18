@@ -38,11 +38,23 @@ function calcularMediana (listaa) {
         const promedioo = calcularPromedio ([elemento1, elemento2])
         mediana = promedioo;
      
-     } 
-     else {
-         mediana = lista1[mitadlistaa]
-     }
-     return mediana;
+    } 
+    else {
+        mediana = listaa[mitadlistaa]
+    }
+    return mediana;
+}
+
+function buttonMediana () {
+    const userInput = document.getElementById("inputLista").value;
+    const userList = userInput.split(',');
+    const userListNumber = userList.map(Number);
+
+    const userListMed= calcularMediana(userListNumber);
+    outputPantalla = document.getElementById("output");
+    outputPantalla.innerText = "mediana: " + userListMed;
+
+    return userListMed;
 }
 
 
