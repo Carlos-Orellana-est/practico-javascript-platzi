@@ -1,3 +1,4 @@
+// A partir de la linea 95 no funciona. Probarlo. 
 // Helpers 
 
 function esPar (numero) {
@@ -43,35 +44,94 @@ function medianaSalarios (lista) {
 }
 
 
-// Mediana General
+//Calculadora mediana top 10% de la poblacion
 
 
-const salariosCol = colombia.map(
+function medianaTop10 (lista) {
+    const spliceStart = parseFloat((lista.length * 90) / 100);
+    const spliceCount = parseFloat(lista.length - spliceStart);
+    
+    const salariosTop10 = lista.splice(spliceStart, spliceCount)
+    const medianaTop10 = medianaSalarios(salariosTop10);
+    
+    return medianaTop10;
+}
+
+
+//Ordenando la lista
+
+
+function sortingList (lista) {
+    const listaSorted = lista.sort(
+        function (salarioA, salarioB) {
+            return salarioA - salarioB;
+        }
+    );
+    return listaSorted;
+}
+
+
+// ****************************************************** MEDIANAS BASE DE DATOS COLOMBIA  ********************************************************
+
+
+// Mediana General BD Colombia
+    
+const salariosCol = colombia.map (
     function(persona) {
         return persona.salary;
     }
 );
-
-const salariosColSorted = salariosCol.sort(
-    function (salarioA, salarioB) {
-        return salarioA - salarioB;
-    }
-);
+const salariosColSorted = sortingList(salariosCol);
 const medianaGeneralCol = medianaSalarios(salariosColSorted);
 
 
-// Mediana del top 10%
+// Mediana del top 10% BD Colombia
+
+const medianaTop10Col = medianaTop10(salariosColSorted);
+
+console.log("mediana general: " + medianaGeneralCol);
+console.log ("mediana top 10% de la población Colombiana: " + medianaTop10Col);
 
 
-const spliceStart = (salariosColSorted.length * 90) / 100;
-const spliceCount = salariosColSorted.length - spliceStart;
+// *********************************************************  MEDIANAS INPUT CON EL HTML ********************************************************
 
-const salariosColTop10 = salariosColSorted.splice(spliceStart, spliceCount)
+// transformando el string del input en array
 
-const medianaTop10Col = medianaSalarios(salariosColTop10);
+function transformandoInput () {
+    const userInput = document.getElementById("inputLista").value;
+    const userList = userInput.split(',');
+    const userListNumber = userList.map(Number);
+    
+    const salariosSorted = sortingList(userListNumber);
 
-console.log(
-    medianaGeneralCol,
-    medianaTop10Col
-);
+    return salariosSorted;
+}
 
+const salariosOrdenados = transformandoInput();
+
+
+// Mediana general input del html
+
+function buttonMediana() {
+    const medianaGeneral = medianaSalarios(salariosOrdenados);
+    outputPantalla = document.getElementById("output");
+    outputPantalla.innerText = "mediana: " + medianaGeneral;
+
+    console.log("mediana: " + medianaGeneral);
+
+    return medianaGeneral;
+}
+    
+
+// Mediana del top 10% input html
+    
+function buttonMedianaTop10() {
+    const medianaTop = medianaTop10(salariosOrdenados);
+    outputPantalla = document.getElementById("output");
+    outputPantalla.innerText = "mediana del top 10% ingresos: " + medianaTop;
+
+    console.log ("mediana top 10% ingresos: " + medianaTop);
+    
+    return medianaTop;
+}
+    

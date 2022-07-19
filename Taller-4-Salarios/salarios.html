@@ -5,9 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salarios</title>
+    <link rel="stylesheet" href="/Taller-3-PromedioModaMediana/styles.css">
+    <style>
+        .div-form {
+            width: 100%;
+            height: 35%;
+            margin: 8% 0 6% 35%;
+            font-weight: bold;
+         }
+        input {
+            width: 60%;
+         }
+        .div-button {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 3%;
+        }
+        button {
+            width: 75%;
+            height: 75%;
+        }
+        #output {
+            margin-bottom: 30px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Salarios</h1>
+    <header>
+        <h1>Mediana de Salarios</h1>
+        <p>Este es mi cuarto taller del curso práctico de javascript</p>
+    </header>
+
+    <section>
+        <form action="">
+            <div class="div-form">
+                <label for="inputLista">
+                    <span>Escriba su lista de salarios, separados por coma (,)</span>
+                    <input type="text" id="inputLista">
+                </label>
+            </div>
+            <div class="div-button">
+                <button type="button" onclick="buttonMediana()">calcular mediana general</button>
+                <button type="button" onclick="buttonMedianaTop10()">calcular mediana top 10%</button>
+            </div>
+        </form>
+        <div id="output" class="pantalla"></div>
+    </section>
 
     <script src="./salarios.js"></script>
     <script src="./analisis.js"></script>

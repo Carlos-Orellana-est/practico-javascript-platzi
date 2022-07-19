@@ -1,4 +1,4 @@
-const colombia = []
+const colombia = [];
 colombia.push({
     name: "Juanita",
     salary: 1000,
