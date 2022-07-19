@@ -48,8 +48,8 @@ function medianaSalarios (lista) {
 
 
 function medianaTop10 (lista) {
-    const spliceStart = parseFloat((lista.length * 90) / 100);
-    const spliceCount = parseFloat(lista.length - spliceStart);
+    const spliceStart = parseInt((lista.length * 90) / 100);
+    const spliceCount = parseInt(lista.length - spliceStart);
     
     const salariosTop10 = lista.splice(spliceStart, spliceCount)
     const medianaTop10 = medianaSalarios(salariosTop10);
@@ -107,12 +107,12 @@ function transformandoInput () {
     return salariosSorted;
 }
 
-const salariosOrdenados = transformandoInput();
 
 
 // Mediana general input del html
 
 function buttonMediana() {
+    const salariosOrdenados = transformandoInput();
     const medianaGeneral = medianaSalarios(salariosOrdenados);
     outputPantalla = document.getElementById("output");
     outputPantalla.innerText = "mediana: " + medianaGeneral;
@@ -126,6 +126,7 @@ function buttonMediana() {
 // Mediana del top 10% input html
     
 function buttonMedianaTop10() {
+    const salariosOrdenados = transformandoInput();
     const medianaTop = medianaTop10(salariosOrdenados);
     outputPantalla = document.getElementById("output");
     outputPantalla.innerText = "mediana del top 10% ingresos: " + medianaTop;
